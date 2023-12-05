@@ -1,0 +1,72 @@
+
+class AddOperation {
+    fun add(x: Int, y: Int):Int {
+        return x + y
+    }
+
+}
+class SubstractOperation {
+
+    fun subtract(x: Int, y: Int):Int {
+
+        return x - y
+    }
+
+}
+
+class MultiplyOperation {
+
+    fun multiply(x: Int, y: Int):Int {
+
+        return x * y
+    }
+
+}
+
+class DivideOperation {
+
+    fun divide(x: Int, y: Int):Int {
+
+        return x / y
+    }
+}
+
+class Calculator {
+
+    fun addOperation(operation: AddOperation, x: Int, y: Int) {
+
+        println("addOperation:${operation.add(x,y)}")
+
+    }
+
+
+    fun subtractOperation(operation: SubstractOperation, x: Int, y: Int) {
+
+        println("subtractOperation:${operation.subtract(x,y)}")
+    }
+
+
+    fun divideOperation(operation: DivideOperation, x: Int, y: Int){
+
+        println("divideOperation:${operation.divide(x,y)}")
+
+    }
+
+
+    fun multiplyOperation(operation: MultiplyOperation, x: Int, y: Int){
+        println("multiplayOperation:${operation.multiply(x,y)}")
+    }
+
+}
+
+
+
+fun main() {
+
+    val calc = Calculator()
+    calc.addOperation(AddOperation(),50,30)
+    calc.subtractOperation(SubstractOperation(),50,30)
+    calc.multiplyOperation(MultiplyOperation(),50,30)
+    calc.divideOperation(DivideOperation(),50,30)
+
+}
