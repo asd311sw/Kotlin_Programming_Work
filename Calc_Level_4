@@ -1,0 +1,67 @@
+abstract class AbstractOperation {
+    abstract fun operate(x: Int, y: Int): Int
+
+}
+
+
+class AddOperation : AbstractOperation() {
+    override fun operate(x: Int, y: Int): Int {
+        return x + y
+    }
+}
+
+class SubstractOperation : AbstractOperation() {
+    override fun operate(x: Int, y: Int): Int {
+        return x - y
+    }
+}
+
+class MultiplyOperation : AbstractOperation() {
+    override fun operate(x: Int, y: Int): Int {
+        return x * y
+    }
+
+}
+
+class DivideOperation : AbstractOperation() {
+    override fun operate(x: Int, y: Int): Int {
+        return x / y
+    }
+}
+
+class Calculator {
+
+    fun addOperation(operation: AddOperation, x: Int, y: Int) {
+
+        println("addOperation:${operation.operate(x, y)}")
+
+    }
+
+
+    fun subtractOperation(operation: SubstractOperation, x: Int, y: Int) {
+
+        println("subtractOperation:${operation.operate(x, y)}")
+    }
+
+
+    fun multiplyOperation(operation: MultiplyOperation, x: Int, y: Int) {
+        println("multiplayOperation:${operation.operate(x, y)}")
+    }
+
+    fun divideOperation(operation: DivideOperation, x: Int, y: Int) {
+
+        println("divideOperation:${operation.operate(x, y)}")
+
+    }
+}
+
+
+fun main() {
+
+    val calc = Calculator()
+    calc.addOperation(AddOperation(), 50, 30)
+    calc.subtractOperation(SubstractOperation(), 50, 30)
+    calc.multiplyOperation(MultiplyOperation(), 50, 30)
+    calc.divideOperation(DivideOperation(), 50, 30)
+
+}
