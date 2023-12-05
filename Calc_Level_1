@@ -1,0 +1,38 @@
+class Calculator {
+    fun add(x: Int, y: Int):Int {
+        return x + y
+    }
+
+
+    fun subtract(x: Int, y: Int):Int {
+
+        return x - y
+    }
+
+
+    fun multiply(x: Int, y: Int):Int {
+
+        return x * y
+    }
+
+
+    fun divide(x: Int, y: Int):Int {
+
+        return x / y
+    }
+//
+//    fun remain(x: Int, y: Int): Int {
+//        return x % y
+//    }
+}
+
+
+
+fun main() {
+
+    val calc = Calculator()
+    println(calc.add(50,30))
+    println(calc.subtract(50,30))
+    println(calc.multiply(50,30))
+    println(calc.divide(50,30))
+}
