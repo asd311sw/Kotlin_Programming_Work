@@ -1,0 +1,172 @@
+
+fun main() {
+
+    var burgerList = ArrayList<Menu>()
+    var icecreamList = ArrayList<Menu>()
+    var drinkList = ArrayList<Menu>()
+    var beerList = ArrayList<Menu>()
+
+    insertBurgerMenu(burgerList)
+    insertIcecreamMenu(icecreamList)
+    insertDrinkMenu(drinkList)
+    insertBeerMenu(beerList)
+
+
+    println("\"SHAKESHACK BURGER 에 오신걸 환영합니다.\"")
+    println("아래 메뉴판을 보시고 메뉴를 골라 입력해주세요.\n")
+
+    while (true) {
+        println("[ SHAKESHACK MENU ]")
+        println("1. Burgers         | 앵거스 비프 통살을 다져만든 버거")
+        println("2. Forzen Custard  | 매장에서 신선하게 만드는 아이스크림")
+        println("3. Drinks          | 매장에서 직접 만드는 음료")
+        println("4. Beer            | 뉴욕 브루클린 브루어리에서 양조한 맥주")
+        println("0. 종료            | 프로그램 종료\n")
+
+        print("어떤 메뉴를 선택하시겠습니까?")
+
+        val num = readLine()!!.toInt()
+
+        when (num) {
+            1 -> showBurgerMenu(burgerList)
+            2 -> showForzenCustardMenu(icecreamList)
+            3 -> showDrinkMenu(drinkList)
+            4 -> showBeerMenu(beerList)
+            0 -> {
+                println("프로그램을 종료합니다.")
+                break
+            }
+            else -> {
+                println("잘못된 번호를 입력했어요. 다시 입력해주세요.")
+
+
+            }
+        }
+    }
+
+
+}
+
+fun insertBurgerMenu(list:ArrayList<Menu>){
+    list.add(Burger("ShackBurger",6900))
+    list.add(Burger("SmokeShack",8900))
+    list.add(Burger("Shroom Burger",9400))
+    list.add(Burger("Cheeseburger",6900))
+    list.add(Burger("Hamburger",5400))
+}
+
+fun insertIcecreamMenu(list:ArrayList<Menu>){
+    list.add(Icecream("Strawberry",2000))
+    list.add(Icecream("Chocolate",1500))
+    list.add(Icecream("Orange",1600))
+    list.add(Icecream("Candy",1700))
+    list.add(Icecream("Cherry",1800))
+}
+
+fun insertDrinkMenu(list:ArrayList<Menu>){
+    list.add(Drink("소다",1000))
+    list.add(Drink("콜라",1300))
+    list.add(Drink("사이다",1200))
+    list.add(Drink("주스",1500))
+    list.add(Drink("스무디",1600))
+}
+
+fun insertBeerMenu(list:ArrayList<Menu>){
+    list.add(Beer("포도맛 맥주",3000))
+    list.add(Beer("사과맛 맥주",2500))
+    list.add(Beer("딸기맛 맥주",2600))
+    list.add(Beer("오렌지맛 맥주",2400))
+    list.add(Beer("레몬맛 맥주",2700))
+}
+
+fun showBurgerMenu(list:ArrayList<Menu>){
+
+    while (true) {
+        println("[ Burgers MENU ]")
+        println("1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거")
+        println("2. SmokeShack    | W 8.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거")
+        println("3. Shroom Burger | W 9.4 | 몬스터 치즈와 체다 치즈로 속을 채운 베지테리안 버거")
+        println("4. Cheeseburger  | W 6.9 | 포테이토 번과 비프패티, 치즈가 토핑된 치즈버거")
+        println("5. Hamburger     | W 5.4 | 비프패티를 기반으로 야채가 들어간 기본버거")
+        println("0. 뒤로가기      | 뒤로가기")
+
+        val num = readLine()!!.toInt()
+
+
+
+        if (num == 0)
+            break
+
+        print("몇 개를 주문하시겠습니까?")
+        val count = readLine()!!.toInt()
+        list[num - 1].displayInfo(count)
+    }
+
+
+}
+
+fun showForzenCustardMenu(list:ArrayList<Menu>){
+
+    while (true) {
+        println("[ ForzenCustard MENU ]")
+        println("1. Strawberry    | W 2000 | 딸기 아이스크림")
+        println("2. Chocolate    | W 1500 | 초코 아이스크림")
+        println("3. Orange | W 1600 | 오렌지 아이스크림")
+        println("4. Candy  | W 1700 | 사탕 아이스크림")
+        println("5. Cherry     | W 1800 | 체리 아이스크림")
+        println("0. 뒤로가기      | 뒤로가기")
+        val num = readLine()!!.toInt()
+
+        if (num == 0)
+            break
+
+        print("몇 개를 주문하시겠습니까?")
+        val count = readLine()!!.toInt()
+        list[num - 1].displayInfo(count)
+    }
+
+}
+
+fun showDrinkMenu(list:ArrayList<Menu>){
+
+    while (true) {
+
+        println("[ Drinks MENU ]")
+        println("1. 소다    | W 1000 | 다양한 맛이 첨가된 소다")
+        println("2. 콜라    | W 1300 | 제로콜라")
+        println("3. 사이다 | W 1200 | 제로사이다")
+        println("4. 주스  | W 1500 | 다양한 맛의 주스")
+        println("5. 스무디    | W 1600 | 특별한 맛을 즐길 수 있는 스무")
+        println("0. 뒤로가기      | 뒤로가기")
+        val num = readLine()!!.toInt()
+
+        if (num == 0)
+            break
+
+        print("몇 개를 주문하시겠습니까?")
+        val count = readLine()!!.toInt()
+        list[num - 1].displayInfo(count)
+    }
+}
+
+fun showBeerMenu(list:ArrayList<Menu>){
+
+    while(true) {
+        println("[ Beer MENU ]")
+        println("1. 포도맛 맥주    | W 3000 | 포도맛 맥주")
+        println("2. 사과맛 맥주    | W 2500 | 사과맛 맥주 ")
+        println("3. 딸기맛 맥주 | W 2600 | 딸기맛 맥주")
+        println("4. 오렌지맛 맥주  | W 2400 | 오렌지맛 맥주")
+        println("5. 레몬맛 맥주     | W 2700 | 레몬맛 맥주")
+        println("0. 뒤로가기      | 뒤로가기")
+        val num = readLine()!!.toInt()
+
+        if (num == 0)
+            break
+
+        print("몇 개를 주문하시겠습니까?")
+        val count = readLine()!!.toInt()
+        list[num - 1].displayInfo(count)
+    }
+}
+
